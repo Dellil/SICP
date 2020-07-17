@@ -1,14 +1,14 @@
 # Chapter 1 Exercise Solutions
 ## 1.3
 ``` scheme
-    (define (square x) (* x x))
-    
-    (define (sum-of-squares x1 x2) (+ (square x1) (square x2)))
-    
-    (define (two-biggest-of-three-numbers x1 x2 x3)
-    	(cond ((and (>= x1 x3) (>= x2 x3)) (sum-of-squares x1 x2))
-    	((and (>= x1 x2) (>= x3 x2)) (sum-of-squares x1 x3))
-    	((and (>= x2 x1) (>= x3 x1)) (sum-of-squares x2 x3))))
+(define (square x) (* x x))
+
+(define (sum-of-squares x1 x2) (+ (square x1) (square x2)))
+
+(define (two-biggest-of-three-numbers x1 x2 x3)
+	(cond ((and (>= x1 x3) (>= x2 x3)) (sum-of-squares x1 x2))
+	((and (>= x1 x2) (>= x3 x2)) (sum-of-squares x1 x3))
+	((and (>= x2 x1) (>= x3 x1)) (sum-of-squares x2 x3))))
 ```
 ## 1.4
 
@@ -54,13 +54,11 @@ good-enough?의 상수가 0.001이라 guess의 값이 다 구해지지도 않은
 문제에서 제시한 방향으로 값을 구하면 전보다는 잘 구해짐
 
 ``` scheme
-before)
 (define (good-enough? guess x)
     (< (abs (- (square guess) x)) 0.001))
 (sqrt 0.0006)
 0.031886781440192566
 
-after)
 (define (good-enough? guess x)
     (< (abs (- guess (new-guess guess x))) 0.001))
 (sqrt 0.0006)
